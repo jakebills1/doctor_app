@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :find_doctors
   def index
     @appointments = current_user.appointments
   end
@@ -43,5 +44,9 @@ class AppointmentsController < ApplicationController
 
     def set_appointment
       @appointment = current_user.appointments.find(params[:id])
+    end
+
+    def find_doctors
+      @doctors = Doctor.all
     end
 end

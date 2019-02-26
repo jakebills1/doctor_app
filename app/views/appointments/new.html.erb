@@ -1,11 +1,11 @@
-<% form_with(model: @appointment, local: true, class: "form") do |f| %>
+<%= form_with(model: @appointment, local: true, class: "form") do |f| %>
     <div class="form-group">
         <%= f.label :name, "Enter Your Concern" %>
         <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="form-group">
-        <%= f.label :doctor %>
-        <%= f.select :doctor_id, @doctors.collect { |d| [d.name, d.id]} %>
+        <%= f.label :doctor, "Pick Your Doctor" %>
+        <%= f.select :doctor_id, @doctors.collect { |d| [d.name, d.id]}, {prompt: "Select Doctor"} %>
     </div>
     <%= f.submit %>
 
