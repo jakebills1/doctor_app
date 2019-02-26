@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+specialties = ["ENT", "Psychiatry", "Endocrinology",  "Family Medicine", "Gastroenterology", "Urology", "OBGYN", "Dermatology", "Cardiovascular", "Opthalmology", "Pediatrics"]
+10.times do 
+    Doctor.create(name: "Dr. #{Faker::Name.last_name}" , specialty: specialties.sample )
+end
