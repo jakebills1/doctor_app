@@ -1,5 +1,8 @@
 <% @doctors.each do |doc|%>
     <ul>
-        <li>Name: <%= doc.name %> - Specialty: <%= doc.specialty %> </li>
+        <li>Name: <%= doc.name %> - Specialty: <%= doc.specialty %> 
+        <%= if current_user.admin? then link_to 'Remove Doctor', doctor_path(doc), method: :delete end %>
+            
+        </li>
     </ul>
 <% end %>
