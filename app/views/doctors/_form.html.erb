@@ -1,14 +1,14 @@
-<%= form_with(model: @doctor, local: true, class: "form-control") do |f|%>
-    <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :specialty %>
-        <%= f.text_field :specialty %>
+<%= form_with(model: @doctor, local: true, class: "form-group") do |f|%>
+    <div class="">
+        <%= f.label :name, "Name:"%>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        <%= f.label :specialty, "Specialty:" %>
+        <%= f.text_field :specialty, class: "form-control" %>
     </div>
     <%= f.submit nil, class: "btn btn-primary" %>
 <% end %>
+
+    
+    
 
     

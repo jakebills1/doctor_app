@@ -1,16 +1,16 @@
-<%= form_with(model: @appointment, local: true, class: "form") do |f| %>
-    <div class="form-group">
-        <%= f.label :name, "Enter Your Concern" %>
+<%= form_with(model: @appointment, local: true, class: "form-group") do |f| %>
+    <div>
+        <%= f.label :name, "Enter Your Concern:" %>
         <%= f.text_field :name, class: "form-control" %>
     </div>
-    <div class="form-group">
-        <%= f.label :doctor, "Pick Your Doctor" %>
-        <%= f.select :doctor_id, @doctors.collect { |d| [d.name, d.id]}, {prompt: "Select Doctor"} %>
+    <div>
+        <%= f.label :doctor, "Pick Your Doctor: " %>
+        <%= f.select :doctor_id, @doctors.collect { |d| [d.name, d.id]}, {prompt: "Select Doctor"} , {class: "form-control time-select"}%>
     </div>
 
-    <div class="form-group">
-        <%= f.label :time, "Select a Time" %>
-        <%= f.time_select :time, { minute_step: 15, ampm: true, start_hour: 8, end_hour: 19} %>
+    <div>
+        <%= f.label :time, "Select a Time: " %>
+        <%= f.time_select :time, { minute_step: 15, ampm: true, start_hour: 8, end_hour: 19}, {class: "form-control time-select"} %>
     </div>
     <%= f.submit nil, class: "btn btn-primary" %>
 

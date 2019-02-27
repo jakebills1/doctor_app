@@ -9,7 +9,6 @@ class DoctorsController < ApplicationController
 
   def new
     @doctor = Doctor.new
-    render partial: 'form'
   end
 
   def create
@@ -23,7 +22,6 @@ class DoctorsController < ApplicationController
   end
 
   def edit
-    render partial: 'form'
   end
 
   def update
