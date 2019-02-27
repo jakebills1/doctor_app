@@ -1,5 +1,5 @@
 <div class="text-center">
-    <%= if current_user.admin? then button_to 'Add a Doctor', new_doctor_path, class: "btn btn-success" end %>
+    <%= if current_user.admin? then button_to 'Add a Doctor', new_doctor_path, method: :get, class: "btn btn-primary" end %>
 </div>
 <div class="card-columns">
     <% @doctors.each do |doc|%>
@@ -9,9 +9,9 @@
                     <h5 class="card-title"><%= doc.name %></h5>
                     <p class="card-text"><%= doc.specialty %></p>
                 </div>
-                <div class="card-body text-center">
-
-                        <%= if current_user.admin? then button_to 'Remove Doctor', doctor_path(doc), method: :delete, class: "btn btn-danger centered" end %>
+                <div class="card-body btn-group">
+                        <%= if current_user.admin? then button_to 'Edit Doctor', edit_doctor_path(doc), method: :get, class: "btn btn-primary" end %>
+                        <%= if current_user.admin? then button_to 'Remove Doctor', doctor_path(doc), method: :delete, class: "btn btn-danger" end %>
                 </div>
             </div>
     

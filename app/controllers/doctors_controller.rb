@@ -9,6 +9,7 @@ class DoctorsController < ApplicationController
 
   def new
     @doctor = Doctor.new
+    render partial: 'form'
   end
 
   def create
@@ -22,8 +23,12 @@ class DoctorsController < ApplicationController
   end
 
   def edit
+    render partial: 'form'
+  end
+
+  def update
     if @doctor.update(doctor_params)
-      redirect_to @doctor
+      redirect_to doctors_path
     else
       render :edit
     end
@@ -38,6 +43,7 @@ class DoctorsController < ApplicationController
     def set_doc
       @doctor = Doctor.find(params[:id])
     end
+
     def doctor_params
       params.require(:doctor).permit(:name, :specialty)
     end
