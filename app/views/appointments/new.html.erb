@@ -12,6 +12,6 @@
         <%= f.label :time, "Select a Time" %>
         <%= f.time_select :time, { minute_step: 15, ampm: true, start_hour: 8, end_hour: 19} %>
     </div>
-    <%= f.submit %>
+    <%= f.submit nil, class: "btn btn-primary" %>
 
 <% end %>

@@ -1,8 +1,36 @@
-<% @doctors.each do |doc|%>
-    <ul>
-        <li>Name: <%= doc.name %> - Specialty: <%= doc.specialty %> 
-        <%= if current_user.admin? then link_to 'Remove Doctor', doctor_path(doc), method: :delete end %>
-            
-        </li>
-    </ul>
-<% end %>
+<div class="text-center">
+    <%= if current_user.admin? then button_to 'Add a Doctor', new_doctor_path, class: "btn btn-success" end %>
+</div>
+<div class="card-columns">
+    <% @doctors.each do |doc|%>
+            <div class="card" style="width: 18rem;">
+                <img src="https://robohash.org/<%= doc.specialty %>/?set=set3" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title"><%= doc.name %></h5>
+                    <p class="card-text"><%= doc.specialty %></p>
+                </div>
+                <div class="card-body text-center">
+
+                        <%= if current_user.admin? then button_to 'Remove Doctor', doctor_path(doc), method: :delete, class: "btn btn-danger centered" end %>
+                </div>
+            </div>
+    
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
