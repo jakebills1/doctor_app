@@ -1,4 +1,6 @@
 <div class="text-center">
+    <h1>Our Doctors</h1>
+    <hr />
     <%= if current_user.admin? then button_to 'Add a Doctor', new_doctor_path, method: :get, class: "btn btn-primary" end %>
 </div>
 <div class="card-columns">

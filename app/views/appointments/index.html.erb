@@ -1,14 +1,21 @@
 <div class="container"> 
-    <h1 class="header">Welcome, <%= current_user.full_name %></h1>
-
+    <div class="text-center">
+        <h1 class="header">Welcome, <%= current_user.full_name %></h1>
+        <hr />
+    </div>
     <h3>Your Appointments:</h3>
     <% current_user.appointments.each do |appt| %>
-        <ul class="list-group">
-            <li class="list-group-item">Reason for visit: <%= appt.name %> - Doctor: <%= appt.doctor.name %> - Time: <%= appt.time.strftime("%l:%M %P") %> -  <%= link_to 'Cancel Appointment', appointment_path(appt), method: :delete %></li>
-        </ul>   
+        <div class="row border">
+            <p class="col-md-4">Reason for visit: <%= appt.name %></p> 
+            <p class="col-md-4">Doctor: <%= appt.doctor.name %></p>
+            <p class="col-md-4">Time: <%= appt.day %> <%= appt.time.strftime("%l:%M %P") %></p>
+            <div class="d-flex justify-content-flex-end">
+                <%= button_to 'Cancel Appointment', appointment_path(appt), method: :delete, class: "btn btn-danger" %></li>
+            </div>    
+        </div>
     <% end %>
-    <div class="btn-group">
-        <%= button_to 'New Appointment', new_appointment_path, class: "btn btn-primary" %>
+    <div class="btn-group" style="margin-top: 10px;">
+        <%= button_to 'New Appointment', new_appointment_path, class: "btn btn-primary", method: :get %>
         <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     </div>
 </div>
